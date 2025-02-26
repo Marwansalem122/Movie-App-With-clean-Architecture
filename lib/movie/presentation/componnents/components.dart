@@ -1,0 +1,11 @@
+export 'package:flutter/material.dart';
+export 'package:cached_network_image/cached_network_image.dart';
+export 'package:shimmer/shimmer.dart';
+export 'package:animate_do/animate_do.dart';
+export 'package:movie_app/core/error/api_constant.dart';
+export 'package:movie_app/core/utils/dummy.dart';
+export 'package:google_fonts/google_fonts.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
+export 'package:movie_app/movie/presentation/bloc/movies_state.dart';
+export 'package:movie_app/movie/presentation/bloc/movies_bloc.dart';
+export 'package:movie_app/core/utils/enums.dart';
