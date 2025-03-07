@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:movie_app/core/di/service_locator.dart';
 import 'package:movie_app/core/routes/base_routes.dart';
 import 'package:movie_app/core/routes/routes.dart';
+import 'package:movie_app/movie/presentation/bloc/movie_details_bloc.dart';
 import 'package:movie_app/movie/presentation/bloc/movies_event.dart';
 import 'package:movie_app/movie/presentation/componnents/components.dart';
+import 'package:movie_app/movie/presentation/pages/movie_detail_screen.dart';
 
 import 'package:movie_app/movie/presentation/pages/movies_page.dart';
 
@@ -23,6 +24,21 @@ class AppRouter {
                       ..add(GetPopularMoviesEvent())
                       ..add(GetTopRatedMoviesEvent()),
             child: const MoviesPage(),
+          ),
+        );
+      case Routes.movieDetailPage:
+        final args = settings.arguments as Map<String, dynamic>;
+        return BaseRoute(
+          page: BlocProvider(
+            create:
+                (context) =>
+                    sl<MovieDetailsBloc>()
+                      ..add(GetMovieDetailsEvent(movieId: args['id'] as int))
+                      ..add(
+                        GetMovieRecommendationEvent(movieId: args['id'] as int),
+                      ),
+
+            child: MovieDetailScreen(id: args['id'] as int),
           ),
         );
       // case Routes.signupScreen:

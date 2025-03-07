@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:movie_app/core/helper/extensions/navigation_extension.dart';
+import 'package:movie_app/core/routes/routes.dart';
 import 'package:movie_app/movie/presentation/componnents/components.dart';
 
 class NowPlayingComponent extends StatelessWidget {
@@ -10,7 +12,6 @@ class NowPlayingComponent extends StatelessWidget {
       buildWhen:
           (previous, current) =>
               previous.nowPlayingStatus != current.nowPlayingStatus,
-
       builder: (context, state) {
         print("Now Playing ReBuilding");
         switch (state.nowPlayingStatus) {
@@ -35,7 +36,10 @@ class NowPlayingComponent extends StatelessWidget {
                       return GestureDetector(
                         key: const Key('openMovieMinimalDetail'),
                         onTap: () {
-                          /// TODO : NAVIGATE TO MOVIE DETAILS
+                          context.pushNamed(
+                            Routes.movieDetailPage,
+                            arguments: {'id': item.id},
+                          );
                         },
                         child: Stack(
                           children: [

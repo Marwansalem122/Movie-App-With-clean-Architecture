@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app/core/utils/app_string.dart';
 import 'package:movie_app/movie/presentation/componnents/now_playing_componnent.dart';
 import 'package:movie_app/movie/presentation/componnents/popular_component.dart';
 import 'package:movie_app/movie/presentation/componnents/top_rated_component.dart';
@@ -24,7 +25,7 @@ class MoviesPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Popular",
+                        AppString.popular,
                         style: GoogleFonts.poppins(
                           fontSize: 19,
                           fontWeight: FontWeight.w500,
@@ -34,13 +35,12 @@ class MoviesPage extends StatelessWidget {
                       Material(
                         child: InkWell(
                           onTap: () {
-                            /// TODO : NAVIGATION TO Top Rated Movies Screen
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: const [
-                                Text('See More'),
+                                Text(AppString.seeMore),
                                 Icon(Icons.arrow_forward_ios, size: 16.0),
                               ],
                             ),
@@ -50,8 +50,6 @@ class MoviesPage extends StatelessWidget {
                     ],
                   ),
                 ),
-
-                // const TopRatedComponent(),
                 const PopularComponent(),
                 Container(
                   margin: const EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 8.0),
@@ -59,7 +57,7 @@ class MoviesPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Top Rated",
+                        AppString.topRated,
                         style: GoogleFonts.poppins(
                           fontSize: 19,
                           fontWeight: FontWeight.w500,
@@ -69,13 +67,12 @@ class MoviesPage extends StatelessWidget {
                       Material(
                         child: InkWell(
                           onTap: () {
-                            /// TODO : NAVIGATION TO Top Rated Movies Screen
                           },
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: const [
-                                Text('See More'),
+                                Text(AppString.seeMore),
                                 Icon(Icons.arrow_forward_ios, size: 16.0),
                               ],
                             ),

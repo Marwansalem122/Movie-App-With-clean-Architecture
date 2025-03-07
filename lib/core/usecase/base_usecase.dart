@@ -1,5 +1,12 @@
-import 'package:movie_app/movie/domain/usecases/use_case.dart';
+import 'package:equatable/equatable.dart';
+import 'package:movie_app/core/error/failure.dart';
+import 'package:dartz/dartz.dart';
 
-abstract class BaseUsecase <T>{
-  Future<Either<Failure, T>> call();
+abstract class BaseUsecase <T,Parameters>{
+  Future<Either<Failure, T>> call(Parameters parameters);
+}
+class NoParameters extends Equatable {
+  const NoParameters();
+  @override
+  List<Object> get props => [];
 }
